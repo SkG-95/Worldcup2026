@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 900" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M0,1 L9,5 L0,9 Z" fill="#0B1F3A"/></marker>
+  </defs>
+  <rect width="740" height="900" fill="#FFFFFF"/>
+  <text x="370" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">Diagramme d'activité</text>
+  <text x="370" y="47" text-anchor="middle" font-size="12" fill="#5C6B7C">Parcours utilisateur : consultation et suivi en temps réel</text>
+
+  <!-- edges first -->
+  <g stroke="#0B1F3A" stroke-width="1.4" fill="none">
+    <line x1="370" y1="74" x2="370" y2="74"/>
+    <line x1="370" y1="72" x2="370" y2="76" marker-end="url(#a)"/>
+    <line x1="370" y1="76" x2="370" y2="76"/>
+    <!-- start->A1 -->
+    <line x1="370" y1="72" x2="370" y2="76"/>
+    <line x1="370" y1="76" x2="370" y2="76"/>
+    <line x1="370" y1="74" x2="370" y2="76"/>
+    <line x1="370" y1="76" x2="370" y2="76"/>
+    <line x1="370" y1="74" x2="370" y2="76"/>
+    <line x1="370" y1="78" x2="370" y2="76"/>
+    <line x1="370" y1="76" x2="370" y2="76"/>
+    <line x1="370" y1="74" x2="370" y2="78" marker-end="url(#a)"/>
+    <line x1="370" y1="116" x2="370" y2="139" marker-end="url(#a)"/>
+    <!-- A2 -> D1 -->
+    <line x1="370" y1="179" x2="370" y2="196" marker-end="url(#a)"/>
+    <!-- D1 oui -> A3 -->
+    <line x1="370" y1="272" x2="370" y2="298" marker-end="url(#a)"/>
+    <!-- A3 -> A4 -->
+    <line x1="370" y1="342" x2="370" y2="369" marker-end="url(#a)"/>
+    <!-- A4 -> D2 -->
+    <line x1="370" y1="409" x2="370" y2="424" marker-end="url(#a)"/>
+    <!-- D2 groupes -> A5a -->
+    <line x1="300" y1="462" x2="262" y2="462" marker-end="url(#a)"/>
+    <!-- D2 elim -> A5b -->
+    <line x1="440" y1="462" x2="478" y2="462" marker-end="url(#a)"/>
+    <!-- A5a -> M1 -->
+    <path d="M167,484 L167,542 L341,542" marker-end="url(#a)"/>
+    <!-- A5b -> M1 -->
+    <path d="M573,484 L573,542 L399,542" marker-end="url(#a)"/>
+    <!-- M1 -> A6 -->
+    <line x1="370" y1="560" x2="370" y2="589" marker-end="url(#a)"/>
+    <!-- A6 -> A7 -->
+    <line x1="370" y1="629" x2="370" y2="659" marker-end="url(#a)"/>
+    <!-- A7 -> D3 -->
+    <line x1="370" y1="699" x2="370" y2="716" marker-end="url(#a)"/>
+    <!-- D3 oui -> A8 -->
+    <line x1="440" y1="754" x2="488" y2="754" marker-end="url(#a)"/>
+    <!-- A8 loop back to A7 -->
+    <path d="M585,732 L585,679 L467,679" marker-end="url(#a)"/>
+    <!-- D3 non -> final -->
+    <line x1="370" y1="792" x2="370" y2="833" marker-end="url(#a)"/>
+  </g>
+
+  <!-- D1 non -> error -->
+  <g stroke="#0B1F3A" stroke-width="1.4" fill="none">
+    <line x1="440" y1="234" x2="498" y2="234" marker-end="url(#a)"/>
+    <path d="M590,213 L590,160 L467,160" marker-end="url(#a)"/>
+  </g>
+
+  <!-- Start node -->
+  <circle cx="370" cy="62" r="11" fill="#0B1F3A"/>
+
+  <!-- Action helper styling -->
+  <g font-size="12" fill="#0B1F3A" text-anchor="middle">
+    <rect x="275" y="78" width="190" height="38" rx="19" fill="#EAF0FF" stroke="#1652F0" stroke-width="1.4"/><text x="370" y="101">Ouvrir l'application</text>
+    <rect x="263" y="141" width="214" height="38" rx="19" fill="#EAF0FF" stroke="#1652F0" stroke-width="1.4"/><text x="370" y="164">Charger les données (API simulée)</text>
+    <rect x="258" y="300" width="224" height="42" rx="21" fill="#EAF0FF" stroke="#1652F0" stroke-width="1.4"/><text x="370" y="318">Afficher le match vedette</text><text x="370" y="333">+ la liste des matchs</text>
+    <rect x="275" y="371" width="190" height="38" rx="19" fill="#EAF0FF" stroke="#1652F0" stroke-width="1.4"/><text x="370" y="394">Sélectionner une phase</text>
+    <rect x="72" y="442" width="190" height="40" rx="20" fill="#EAF0FF" stroke="#1652F0" stroke-width="1.4"/><text x="167" y="460">Vue « Matchs »</text><text x="167" y="475">/ « Classements »</text>
+    <rect x="478" y="442" width="190" height="40" rx="20" fill="#EAF0FF" stroke="#1652F0" stroke-width="1.4"/><text x="573" y="460">Vue « Tableau »</text><text x="573" y="475">/ « Liste »</text>
+    <rect x="275" y="591" width="190" height="38" rx="19" fill="#EAF0FF" stroke="#1652F0" stroke-width="1.4"/><text x="370" y="614">Sélectionner un match</text>
+    <rect x="275" y="661" width="190" height="38" rx="19" fill="#EAF0FF" stroke="#1652F0" stroke-width="1.4"/><text x="370" y="684">Afficher la fiche détaillée</text>
+    <rect x="490" y="734" width="190" height="40" rx="20" fill="#D7F0E4" stroke="#127A52" stroke-width="1.4"/><text x="585" y="752">Mettre à jour le score</text><text x="585" y="767">en temps réel</text>
+    <rect x="498" y="214" width="200" height="40" rx="20" fill="#FBE3E0" stroke="#C0392B" stroke-width="1.4"/><text x="598" y="232">Afficher l'erreur</text><text x="598" y="247">+ proposer relance</text>
+  </g>
+
+  <!-- Decision diamonds -->
+  <g fill="#FFF7E6" stroke="#C8922A" stroke-width="1.4">
+    <polygon points="300,234 370,196 440,234 370,272"/>
+    <polygon points="300,462 370,424 440,462 370,500"/>
+    <polygon points="300,754 370,716 440,754 370,792"/>
+  </g>
+  <g font-size="11.5" fill="#0B1F3A" text-anchor="middle">
+    <text x="370" y="238">Données reçues ?</text>
+    <text x="370" y="466">Type de phase ?</text>
+    <text x="370" y="758">Match en cours ?</text>
+  </g>
+  <!-- merge -->
+  <polygon points="345,542 370,520 395,542 370,564" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.4"/>
+
+  <!-- Final node -->
+  <circle cx="370" cy="850" r="13" fill="none" stroke="#0B1F3A" stroke-width="1.6"/>
+  <circle cx="370" cy="850" r="7" fill="#0B1F3A"/>
+
+  <!-- edge labels -->
+  <g font-size="11" fill="#5C6B7C">
+    <text x="382" y="288">[ oui ]</text>
+    <text x="448" y="228">[ non ]</text>
+    <text x="252" y="455" text-anchor="end">[ groupes ]</text>
+    <text x="450" y="455">[ élimination ]</text>
+    <text x="382" y="812">[ non ]</text>
+    <text x="450" y="748">[ oui ]</text>
+    <text x="500" y="675" fill="#127A52">boucle temps réel</text>
+  </g>
+</svg>
