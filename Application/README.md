@@ -12,6 +12,12 @@ de groupes, tableau final, et un assistant conversationnel propulsé par une
 vraie IA (Google Gemini), avec repli automatique sur un mode simulé si la
 clé n'est pas configurée ou en cas de coupure réseau.
 
+Les résultats de la phase de groupes reflètent le vrai tirage au sort et les
+vrais scores de la Coupe du Monde 2026 (données figées, sans appel réseau).
+Deux 8es de finale réels sont animés en direct pour illustrer le moteur de
+mise à jour temps réel ; le reste du tableau à élimination directe reste
+générique (places non résolues, ex. « 1er Gr. A »).
+
 ## Démarrage
 
 ```bash
@@ -85,7 +91,9 @@ Pipeline CI/CD, conteneurisation et déploiement détaillés dans
 
 - Les données de matchs proviennent d'une couche service simulée
   (`worldCupApi`), conformément au cahier des charges technique (pas de
-  back-end serveur pour les données).
+  back-end serveur pour les données). Le contenu de la phase de groupes
+  correspond aux vrais résultats de la compétition (tirage au sort et
+  scores réels) plutôt qu'à une génération aléatoire.
 - L'assistant IA (`aiAssistant`) interroge une vraie IA (Google Gemini) via
   la fonction serverless `api/chat.js`, avec le contexte réel de
   l'application (scores, classements) injecté dans le prompt. Si le service
