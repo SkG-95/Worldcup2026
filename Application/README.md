@@ -1,5 +1,8 @@
 # Suivi Coupe du Monde FIFA 2026
 
+[![CI](https://github.com/SkG-95/Worldcup2026/actions/workflows/ci.yml/badge.svg)](https://github.com/SkG-95/Worldcup2026/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](../LICENSE)
+
 Application web (React + Vite) de suivi de la Coupe du Monde FIFA 2026 :
 consultation des matchs par phase, scores en temps réel (simulé), classements
 de groupes, tableau final, et un assistant conversationnel (mode simulé,
@@ -20,6 +23,25 @@ Puis ouvrir l'URL affichée (en général http://localhost:5173).
 npm run build
 npm run preview
 ```
+
+## Tests
+
+```bash
+npm test
+```
+
+## Docker
+
+```bash
+docker compose up --build
+```
+
+Puis ouvrir http://localhost:8080.
+
+## DevOps
+
+Pipeline CI/CD, conteneurisation et déploiement détaillés dans
+[`DEVOPS.md`](DEVOPS.md).
 
 ## Structure
 
