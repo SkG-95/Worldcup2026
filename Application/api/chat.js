@@ -3,7 +3,7 @@
  * jamais exposée dans le code client, conformément au cahier des
  * charges technique. */
 
-const MODEL = 'gemini-2.0-flash';
+const MODEL = 'gemini-3.5-flash';
 const MAX_QUESTION_LENGTH = 300;
 
 export default async function handler(req, res) {
@@ -43,7 +43,14 @@ Question de l'utilisateur : ${question}`;
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { maxOutputTokens: 220, temperature: 0.4 },
+          generationConfig: {
+            maxOutputTokens: 300,
+            temperature: 0.4,
+            // gemini-3.5-flash a un mode "réflexion" par défaut qui consomme
+            // des tokens avant de répondre ; on le désactive pour un
+            // assistant de type FAQ, plus rapide et moins coûteux.
+            thinkingConfig: { thinkingBudget: 0 },
+          },
         }),
       }
     );
