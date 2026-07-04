@@ -25,7 +25,7 @@ export default function AiAssistant({matches}){
       <button className={`ai-fab ${open?"open":""}`} onClick={()=>setOpen(o=>!o)} aria-label="Assistant IA">{open?"✕":"💬"}</button>
       {open&&(
         <div className="ai-panel">
-          <div className="ai-head"><span className="ai-dot"/><div><b>Assistant FIFA 2026</b><span>IA simulée · données réelles</span></div></div>
+          <div className="ai-head"><span className="ai-dot"/><div><b>Assistant FIFA 2026</b><span>IA · données réelles</span></div></div>
           <div className="ai-body">
             {msgs.map((m,i)=><div key={i}className={`ai-msg ${m.role}`}>{m.text}</div>)}
             {busy&&<div className="ai-msg ai typing">…</div>}

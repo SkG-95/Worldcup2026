@@ -1,4 +1,5 @@
 import { TEAMS } from '../../data/teams';
+import { GROUPS } from '../../data/competition';
 import { computeStandings } from '../../utils/standings';
 import { analyzeTeam } from './analyzeTeam';
 import { fmtDate } from '../../utils/format';
@@ -10,8 +11,8 @@ function buildAiContext(matches){
   return{live,upcoming};
 }
 
-/* ─── IA : ASSISTANT CONVERSATIONNEL (simulé par mots-clés) ─── */
-export function aiAssistant({question,matches}){
+/* ─── IA SIMULÉE (mots-clés) : repli sans back-end ni connexion ─── */
+function simulatedAssistant({question,matches}){
   return new Promise(resolve=>{
     setTimeout(()=>{
       const q=question.toLowerCase();
@@ -43,4 +44,39 @@ export function aiAssistant({question,matches}){
       resolve({answer});
     },650);
   });
+}
+
+/* ─── Résumé texte des données réelles, envoyé en contexte au vrai LLM ─── */
+function buildContextSummary(matches){
+  const live=matches.filter(m=>m.status==="live"&&m.home);
+  const upcoming=matches.filter(m=>m.status==="scheduled"&&m.home)
+    .sort((a,b)=>new Date(a.datetime)-new Date(b.datetime)).slice(0,5);
+  const fmtMatch=(m)=>`${TEAMS[m.home]?.n} ${m.homeScore}-${m.awayScore} ${TEAMS[m.away]?.n}${m.minute?` (${m.minute}')`:""}`;
+  const groupsSummary=Object.keys(GROUPS).map(g=>{
+    const rows=computeStandings(matches,g);
+    return `Groupe ${g} : `+rows.map((r,i)=>`${i+1}. ${TEAMS[r.team]?.n} (${r.Pts} pts)`).join(", ");
+  }).join("\n");
+  return[
+    live.length?`Matchs en direct : ${live.map(fmtMatch).join(" | ")}`:"Aucun match en direct actuellement.",
+    upcoming.length?`Prochains matchs : ${upcoming.map(m=>`${TEAMS[m.home]?.n} - ${TEAMS[m.away]?.n} (${fmtDate(m.datetime)})`).join(" | ")}`:"",
+    `Classements des groupes :\n${groupsSummary}`,
+  ].filter(Boolean).join("\n\n");
+}
+
+/* ─── IA : ASSISTANT CONVERSATIONNEL ─── */
+export async function aiAssistant({question,matches}){
+  try{
+    const res=await fetch("/api/chat",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({question,context:buildContextSummary(matches)}),
+    });
+    if(res.ok){
+      const data=await res.json();
+      if(data.answer)return{answer:data.answer};
+    }
+  }catch{
+    // service indisponible (hors ligne, clé non configurée…) : repli simulé
+  }
+  return simulatedAssistant({question,matches});
 }
