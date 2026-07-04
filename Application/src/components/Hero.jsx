@@ -23,7 +23,8 @@ export default function Hero({featured,onOpen}){
           <span className="hero-name">{th?.n}</span>
         </div>
         <div className="hero-score">
-          {m.homeScore!=null?<><span>{m.homeScore}</span><i>:</i><span>{m.awayScore}</span></>
+          {m.homeScore!=null?
+            <div className="hero-score-row"><span>{m.homeScore}</span><i>:</i><span>{m.awayScore}</span></div>
             :<span className="hero-vs">VS</span>}
           {m.stadium&&<small className="hero-stad">{m.stadium}</small>}
         </div>

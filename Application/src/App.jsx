@@ -44,16 +44,21 @@ export default function App(){
     return matches.filter(m=>m.phase===phase);
   },[matches,phase,gf]);
 
+  function goHome(){
+    setPhase("groups");setGf("A");setView("matches");setKoView("bracket");
+    setSel(null);setQuizOpen(false);setTeamView(false);
+  }
+
   return(
     <div className="wc">
       <header className="hd">
-        <div className="hd-brand">
+        <button className="hd-brand" onClick={goHome} aria-label="Retour à l'accueil">
           <div className="hd-logo">26</div>
           <div>
             <div className="hd-title">FIFA World Cup 2026</div>
             <div className="hd-sub">USA · CANADA · MEXIQUE · 11 JUIN – 19 JUILLET</div>
           </div>
-        </div>
+        </button>
         <div className="hd-r">
           <span className={`pill ${liveCount?"on":""}`}><i className="d"/>{liveCount} en direct</span>
           <button className="quiz-cta" onClick={()=>setQuizOpen(true)}>🧠 Quiz</button>
