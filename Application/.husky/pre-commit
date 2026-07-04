@@ -1,0 +1,2 @@
+cd Application
+npx lint-staged
