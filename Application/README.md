@@ -2,6 +2,9 @@
 
 [![CI](https://github.com/SkG-95/Worldcup2026/actions/workflows/ci.yml/badge.svg)](https://github.com/SkG-95/Worldcup2026/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](../LICENSE)
+[![Déployé sur Vercel](https://img.shields.io/badge/Démo-en_ligne-000000?logo=vercel)](https://worldcup2026-two-eta.vercel.app)
+
+**Démo en ligne : [worldcup2026-two-eta.vercel.app](https://worldcup2026-two-eta.vercel.app)**
 
 Application web (React + Vite) de suivi de la Coupe du Monde FIFA 2026 :
 consultation des matchs par phase, scores en temps réel (simulé), classements
