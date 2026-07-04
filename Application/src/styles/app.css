@@ -12,7 +12,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;}
 button{cursor:pointer;font-family:inherit;}
 
 /* ── LAYOUT ── */
-.wc{min-height:100vh;width:100%;margin:0 auto;position:relative;isolation:isolate;background:var(--bg);}
+.wc{min-height:100vh;width:100%;margin:0 auto;position:relative;isolation:isolate;background:var(--bg);
+  display:flex;flex-direction:column;}
 .wc>*:not(.glow):not(.ov):not(.ai-fab):not(.ai-panel){position:relative;z-index:1;}
 
 /* ── HEADER FIFA ── */
@@ -108,7 +109,7 @@ header.hd{
 .vw-btn.on{background:rgba(201,150,10,.15);border-color:var(--gold);color:var(--gold2);}
 
 /* ── CONTENU ── */
-.content{padding:24px;min-height:300px;}
+.content{padding:24px;min-height:300px;flex:1 0 auto;width:100%;}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
 @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 .card{text-align:left;border:1px solid var(--line2);border-radius:14px;padding:14px 16px;cursor:pointer;
