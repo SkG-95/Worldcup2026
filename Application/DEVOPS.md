@@ -91,17 +91,40 @@ GitHub (`vercel.json` à la racine de `Application/`) :
 - HTTPS est fourni automatiquement par la plateforme (répond à l'exigence de
   communications sécurisées du cahier des charges technique).
 
-## 7. Sécurité opérationnelle
+## 7. Assistant IA : fonction serverless et gestion du secret
 
-- Aucune clé d'API ni secret dans le code client (cohérent avec l'absence de
-  back-end serveur — voir cahier des charges technique).
+Fichier : [`api/chat.js`](api/chat.js)
+
+L'assistant conversationnel interroge une vraie IA (Google Gemini) via une
+fonction serverless Vercel, seul point d'exécution serveur du projet :
+
+- La clé `GEMINI_API_KEY` est stockée comme variable d'environnement chiffrée
+  sur Vercel (Production/Preview/Development) — jamais commitée, jamais
+  présente dans le bundle client (`.env.local` est ignoré par Git en local).
+- Le front-end n'appelle jamais l'API Gemini directement : il envoie la
+  question et un résumé des données réelles (scores, classements) à
+  `/api/chat`, qui construit le prompt et relaie la réponse.
+- Repli automatique sur l'assistant simulé (mots-clés) si la clé est absente
+  ou le service indisponible — robustesse en développement local et filet de
+  sécurité pendant une démonstration en direct.
+
+```bash
+npm run dev:vercel   # émule les fonctions serverless en local (nécessite .env.local)
+```
+
+## 8. Sécurité opérationnelle
+
+- Aucune clé d'API ni secret dans le code client : les données de match
+  restent simulées côté client (pas de secret à protéger), et la seule clé
+  du projet (assistant IA) est isolée côté serveur (section 7).
 - Dépendances auditées automatiquement (`npm audit` en CI + Dependabot).
 - `.dockerignore` et `.gitignore` excluent les artefacts et fichiers locaux
-  sensibles du build et du dépôt.
+  sensibles (dont `.env`/`.env.local`) du build et du dépôt.
 
-## 8. Évolutions possibles
+## 9. Évolutions possibles
 
-- Ajout d'un outil de suivi d'erreurs runtime (ex. Sentry) si l'application
-  évolue vers un vrai back-end.
+- Étendre la fonction serverless à d'autres besoins (ex. suivi d'erreurs
+  runtime type Sentry) si l'application évolue vers un vrai back-end pour les
+  données de match, pas seulement pour l'IA.
 - Bascule du polling temps réel vers WebSocket, sans changement d'architecture
   côté déploiement (voir cahier des charges technique).
