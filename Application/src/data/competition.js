@@ -1,9 +1,12 @@
-/* ─── DONNÉES : GROUPES, STADES, PHASES ─── */
+/* ─── DONNÉES : GROUPES, STADES, PHASES ───
+ * Composition des groupes alignée sur le vrai tirage au sort de la Coupe du
+ * Monde FIFA 2026 (5 décembre 2025), recoupée sur plusieurs sources
+ * indépendantes (Wikipédia, ESPN). */
 export const GROUPS={
   A:["MEX","KOR","RSA","CZE"],B:["CAN","BIH","QAT","SUI"],C:["BRA","MAR","HAI","SCO"],
-  D:["USA","AUS","PAR","TUR"],E:["GER","CIV","CUW","NOR"],F:["NED","JPN","SEN","PAN"],
-  G:["ARG","CRO","EGY","NZL"],H:["ESP","URU","GHA","UZB"],I:["FRA","COL","IRN","SWE"],
-  J:["ENG","ECU","TUN","KSA"],K:["POR","ALG","JOR","CPV"],L:["BEL","COD","IRQ","AUT"],
+  D:["USA","AUS","PAR","TUR"],E:["GER","CIV","ECU","CUW"],F:["NED","JPN","SWE","TUN"],
+  G:["BEL","EGY","IRN","NZL"],H:["ESP","CPV","KSA","URU"],I:["FRA","SEN","IRQ","NOR"],
+  J:["ARG","ALG","AUT","JOR"],K:["POR","COD","UZB","COL"],L:["ENG","CRO","GHA","PAN"],
 };
 
 export const STADIUMS=[

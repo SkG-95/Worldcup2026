@@ -8,8 +8,8 @@ describe('analyzeTeam', () => {
 
   it('détecte une équipe invaincue et la mentionne comme leader', () => {
     const matches = [
-      { phase: 'groups', group: 'I', status: 'finished', home: 'FRA', away: 'COL', homeScore: 2, awayScore: 0 },
-      { phase: 'groups', group: 'I', status: 'finished', home: 'IRN', away: 'FRA', homeScore: 0, awayScore: 1 },
+      { phase: 'groups', group: 'I', status: 'finished', home: 'FRA', away: 'SEN', homeScore: 2, awayScore: 0 },
+      { phase: 'groups', group: 'I', status: 'finished', home: 'NOR', away: 'FRA', homeScore: 0, awayScore: 1 },
     ];
     const analysis = analyzeTeam('FRA', matches);
     expect(analysis.W).toBe(2);
@@ -21,7 +21,7 @@ describe('analyzeTeam', () => {
 
   it('détecte une équipe en difficulté après des défaites', () => {
     const matches = [
-      { phase: 'groups', group: 'I', status: 'finished', home: 'FRA', away: 'COL', homeScore: 0, awayScore: 2 },
+      { phase: 'groups', group: 'I', status: 'finished', home: 'FRA', away: 'SEN', homeScore: 0, awayScore: 2 },
     ];
     const analysis = analyzeTeam('FRA', matches);
     expect(analysis.L).toBe(1);
@@ -30,8 +30,8 @@ describe('analyzeTeam', () => {
 
   it('calcule la forme sur les 3 derniers matchs (V/N/D)', () => {
     const matches = [
-      { phase: 'groups', group: 'I', status: 'finished', home: 'FRA', away: 'COL', homeScore: 1, awayScore: 1 },
-      { phase: 'groups', group: 'I', status: 'finished', home: 'IRN', away: 'FRA', homeScore: 0, awayScore: 2 },
+      { phase: 'groups', group: 'I', status: 'finished', home: 'FRA', away: 'SEN', homeScore: 1, awayScore: 1 },
+      { phase: 'groups', group: 'I', status: 'finished', home: 'NOR', away: 'FRA', homeScore: 0, awayScore: 2 },
     ];
     const analysis = analyzeTeam('FRA', matches);
     expect(analysis.form).toEqual(['N', 'V']);

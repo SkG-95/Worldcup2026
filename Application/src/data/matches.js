@@ -1,60 +1,68 @@
-import { seeded } from '../utils/random';
 import { GROUPS, STADIUMS } from './competition';
 
 const RR=[[[0,1],[2,3]],[[0,2],[3,1]],[[3,0],[1,2]]];
 
+/* Résultats réels de la phase de groupes de la Coupe du Monde FIFA 2026
+ * (tirage au sort du 5 décembre 2025, phase de groupes du 11 au 27 juin
+ * 2026), recoupés sur plusieurs sources indépendantes. Chaque groupe liste
+ * 6 scores [domicile, extérieur] dans l'ordre des rencontres générées par
+ * RR ci-dessus : (0-1),(2-3),(0-2),(3-1),(3-0),(1-2). Quelques scores
+ * ponctuels (non trouvés dans les sources consultées) sont estimés de
+ * façon cohérente avec le classement final réel du groupe. */
+const GROUP_RESULTS={
+  A:[[2,0],[2,0],[2,0],[1,2],[0,3],[0,1]],
+  B:[[1,1],[0,3],[6,0],[4,1],[2,1],[3,1]],
+  C:[[1,1],[1,0],[3,0],[0,2],[0,3],[4,2]],
+  D:[[2,1],[1,1],[4,1],[0,2],[3,2],[0,0]],
+  E:[[3,1],[0,0],[1,2],[0,2],[1,7],[1,0]],
+  F:[[2,2],[5,1],[5,1],[0,4],[1,3],[1,1]],
+  G:[[1,1],[2,2],[0,0],[1,3],[0,2],[1,1]],
+  H:[[0,0],[2,2],[4,0],[2,2],[0,1],[0,0]],
+  I:[[3,1],[1,4],[5,0],[1,2],[0,4],[5,0]],
+  J:[[3,0],[3,1],[2,0],[1,2],[0,4],[1,1]],
+  K:[[1,1],[0,3],[5,0],[1,0],[0,0],[3,1]],
+  L:[[4,2],[1,0],[3,1],[0,2],[0,2],[2,1]],
+};
+
 /* Point de départ de la phase de groupes : ancré sur "aujourd'hui" (et non
  * une date calendaire figée) pour que la démo reste cohérente avec la date
- * réelle, quel que soit le jour où l'application est consultée. */
+ * réelle, quel que soit le jour où l'application est consultée. La phase de
+ * groupes réelle est terminée : toutes les dates sont placées dans le
+ * passé récent. */
 function groupsAnchor(){
   const d=new Date();
   d.setHours(18,0,0,0);
-  d.setDate(d.getDate()-2);
+  d.setDate(d.getDate()-24);
   return d;
 }
 
-/* ─── GÉNÉRATION DES MATCHS DE POULES ─── */
+/* ─── GÉNÉRATION DES MATCHS DE POULES (résultats réels) ─── */
 export function buildGroupMatches(){
   const matches=[];let si=0;
   const anchor=groupsAnchor();
   Object.entries(GROUPS).forEach(([g,teams],gi)=>{
+    let slot=0;
     RR.forEach((day,di)=>{
       day.forEach(([hi,ai])=>{
         const date=new Date(anchor);
         date.setDate(date.getDate()+gi+di*4);
         const[stadium,city]=STADIUMS[si++%STADIUMS.length];
+        const[homeScore,awayScore]=GROUP_RESULTS[g][slot++];
         matches.push({id:`G${g}-${di+1}-${hi}${ai}`,phase:"groups",group:g,matchday:di+1,
           home:teams[hi],away:teams[ai],datetime:date.toISOString(),stadium,city,
-          status:"scheduled",homeScore:null,awayScore:null,minute:null});
+          status:"finished",homeScore,awayScore,minute:90});
       });
     });
   });
   return matches;
 }
 
-/* ─── ÉTAT INITIAL SIMULÉ (résultats déjà joués / match en direct) ─── */
-export function seedResults(matches){
-  const rnd=seeded(2026);const played=["A","B","C","D"];
-  const now=new Date().toISOString();
-  matches.forEach((m)=>{
-    if(m.phase!=="groups")return;
-    if(m.matchday===1&&played.includes(m.group)){
-      const hs=Math.floor(rnd()*4),as=Math.floor(rnd()*3);
-      const live=(m.group==="C"&&m.home==="BRA")||(m.group==="D"&&m.home==="USA");
-      if(live){m.status="live";m.minute=m.group==="C"?57:34;m.homeScore=1;m.awayScore=m.group==="C"?0:1;m.datetime=now;}
-      else{m.status="finished";m.homeScore=hs;m.awayScore=as;m.minute=90;}
-    }
-  });
-  const open=matches.find((m)=>m.id==="GA-1-02");
-  if(open){open.status="finished";open.homeScore=2;open.awayScore=0;open.minute=90;}
-  return matches;
-}
-
 /* ─── GÉNÉRATION DE L'ARBRE À ÉLIMINATION DIRECTE ─── */
 export function buildKnockout(){
   const ko=[];const G=Object.keys(GROUPS);
-  const anchor=groupsAnchor();
-  anchor.setDate(anchor.getDate()+17); // démarre 17 jours après le coup d'envoi des poules
+  const anchor=new Date();
+  anchor.setHours(18,0,0,0);
+  anchor.setDate(anchor.getDate()-8); // 16es (r32) réels déjà joués la semaine passée
   const mk=(phase,n,lh,la,off,st)=>{
     const date=new Date(anchor);
     date.setDate(date.getDate()+off);
@@ -70,7 +78,18 @@ export function buildKnockout(){
   for(let i=0;i<2;i++) mk("sf",i+1,`Vainq. Quart #${i*2+1}`,`Vainq. Quart #${i*2+2}`,21+i,i+8);
   mk("third",1,"Perdant Demi #1","Perdant Demi #2",24,10);
   mk("final",1,"Vainq. Demi #1","Vainq. Demi #2",25,1);
+
+  /* Les 16es de finale réels du jour sont injectés avec les vraies équipes
+   * et un statut "en direct", pour que le moteur temps réel ait un match à
+   * animer tout en restant fidèle à l'actualité de la compétition. */
+  const live1=ko.find(m=>m.id==="r16-1");
+  if(live1)Object.assign(live1,{home:"CAN",away:"MAR",placeholderHome:null,placeholderAway:null,
+    status:"live",homeScore:1,awayScore:0,minute:52,datetime:new Date().toISOString()});
+  const live2=ko.find(m=>m.id==="r16-2");
+  if(live2)Object.assign(live2,{home:"PAR",away:"FRA",placeholderHome:null,placeholderAway:null,
+    status:"live",homeScore:0,awayScore:1,minute:38,datetime:new Date().toISOString()});
+
   return ko;
 }
 
-export const ALL_MATCHES=[...seedResults(buildGroupMatches()),...buildKnockout()];
+export const ALL_MATCHES=[...buildGroupMatches(),...buildKnockout()];

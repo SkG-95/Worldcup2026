@@ -13,7 +13,7 @@ describe('predictMatch', () => {
   });
 
   it('renvoie des pourcentages dont la somme fait 100', () => {
-    const pred = predictMatch({ home: 'FRA', away: 'COL' }, []);
+    const pred = predictMatch({ home: 'FRA', away: 'SEN' }, []);
     expect(pred.home + pred.draw + pred.away).toBe(100);
     expect(pred.home).toBeGreaterThanOrEqual(5);
     expect(pred.away).toBeGreaterThanOrEqual(5);
@@ -21,9 +21,9 @@ describe('predictMatch', () => {
 
   it('favorise l\'équipe la mieux classée dans son groupe', () => {
     const matches = [
-      { phase: 'groups', group: 'I', status: 'finished', home: 'FRA', away: 'SWE', homeScore: 3, awayScore: 0 },
+      { phase: 'groups', group: 'I', status: 'finished', home: 'FRA', away: 'IRQ', homeScore: 3, awayScore: 0 },
     ];
-    const pred = predictMatch({ home: 'FRA', away: 'COL' }, matches);
+    const pred = predictMatch({ home: 'FRA', away: 'SEN' }, matches);
     expect(pred.home).toBeGreaterThan(pred.away);
   });
 });
