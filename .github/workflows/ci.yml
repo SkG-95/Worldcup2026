@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+defaults:
+  run:
+    working-directory: Application
+
+jobs:
+  build:
+    name: Lint · Tests · Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Installation de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Application/package-lock.json
+
+      - name: Installation des dépendances
+        run: npm ci
+
+      - name: Analyse statique (ESLint)
+        run: npm run lint
+
+      - name: Tests unitaires (Vitest)
+        run: npm test
+
+      - name: Audit des dépendances (sécurité)
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Build de production
+        run: npm run build
+
+      - name: Archive du build
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: Application/dist
+          retention-days: 7
