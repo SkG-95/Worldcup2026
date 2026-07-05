@@ -1,91 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 950" font-family="Arial, Helvetica, sans-serif">
   <defs>
-    <marker id="fk" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#5C6B7C" stroke-width="1.3"/></marker>
+    <marker id="fk" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#5C6B7C" stroke-width="1.4"/></marker>
   </defs>
-  <rect width="980" height="620" fill="#FFFFFF"/>
-  <text x="490" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">Modèle Logique de Données (MLD)</text>
+  <rect width="1500" height="950" fill="#FFFFFF"/>
+  <text x="750" y="38" text-anchor="middle" font-size="19" font-weight="bold" fill="#0B1F3A">Modèle Logique de Données (MLD) — schéma relationnel</text>
 
-  <!-- FK links -->
-  <g stroke="#5C6B7C" stroke-width="1.3" fill="none">
-    <line x1="130" y1="235" x2="130" y2="116" marker-end="url(#fk)"/>            <!-- EQUIPE.id_groupe -> GROUPE -->
-    <line x1="450" y1="150" x2="650" y2="106" marker-end="url(#fk)"/>            <!-- MATCH.id_phase -> PHASE -->
-    <line x1="566" y1="300" x2="772" y2="250" marker-end="url(#fk)"/>            <!-- MATCH.id_stade -> STADE -->
-    <line x1="330" y1="316" x2="258" y2="289" marker-end="url(#fk)"/>            <!-- dom -> EQUIPE -->
-    <line x1="330" y1="332" x2="258" y2="305" marker-end="url(#fk)"/>            <!-- ext -> EQUIPE -->
-    <line x1="330" y1="348" x2="222" y2="112" marker-end="url(#fk)"/>            <!-- MATCH.id_groupe -> GROUPE -->
-    <line x1="150" y1="440" x2="150" y2="359" marker-end="url(#fk)"/>            <!-- CLASSEMENT.id_equipe -> EQUIPE -->
+  <!-- ============ références FK → PK ============ -->
+  <g stroke="#5C6B7C" stroke-width="1.4" fill="none">
+    <line x1="200" y1="380" x2="200" y2="174" marker-end="url(#fk)"/>
+    <line x1="200" y1="660" x2="200" y2="560" marker-end="url(#fk)"/>
+    <line x1="750" y1="300" x2="750" y2="174" marker-end="url(#fk)"/>
+    <path d="M890,508 L1040,508 L1040,145 L1180,145" marker-end="url(#fk)"/>
+    <path d="M630,532 L560,532 L560,130 L320,130" marker-end="url(#fk)"/>
+    <line x1="630" y1="556" x2="320" y2="556" marker-end="url(#fk)"/>
+    <path d="M630,580 L370,580 L370,545 L320,545" marker-end="url(#fk)"/>
   </g>
 
+  <!-- ============ tables ============ -->
   <!-- GROUPE -->
   <g>
-    <rect x="40" y="56" width="180" height="60" rx="2" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.4"/>
-    <rect x="40" y="56" width="180" height="22" fill="#0B1F3A"/>
-    <text x="130" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">GROUPE</text>
-    <text x="48" y="94" font-size="11" fill="#0B1F3A"><tspan text-decoration="underline">id_groupe</tspan> (PK)</text>
-    <text x="48" y="110" font-size="11" fill="#0B1F3A">libelle</text>
+    <rect x="80" y="90" width="240" height="84" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="80" y="90" width="240" height="28" fill="#0B1F3A"/>
+    <text x="200" y="109" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">GROUPE</text>
+    <text x="92" y="136" font-size="12" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_groupe</tspan>  (PK)</text>
+    <text x="92" y="160" font-size="12" fill="#0B1F3A">libelle</text>
   </g>
   <!-- PHASE -->
   <g>
-    <rect x="560" y="46" width="180" height="60" rx="2" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.4"/>
-    <rect x="560" y="46" width="180" height="22" fill="#0B1F3A"/>
-    <text x="650" y="62" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">PHASE</text>
-    <text x="568" y="84" font-size="11" fill="#0B1F3A"><tspan text-decoration="underline">id_phase</tspan> (PK)</text>
-    <text x="568" y="100" font-size="11" fill="#0B1F3A">libelle</text>
+    <rect x="630" y="90" width="240" height="84" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="630" y="90" width="240" height="28" fill="#0B1F3A"/>
+    <text x="750" y="109" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">PHASE</text>
+    <text x="642" y="136" font-size="12" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_phase</tspan>  (PK)</text>
+    <text x="642" y="160" font-size="12" fill="#0B1F3A">libelle</text>
   </g>
   <!-- STADE -->
   <g>
-    <rect x="772" y="205" width="176" height="76" rx="2" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.4"/>
-    <rect x="772" y="205" width="176" height="22" fill="#0B1F3A"/>
-    <text x="860" y="221" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">STADE</text>
-    <text x="780" y="243" font-size="11" fill="#0B1F3A"><tspan text-decoration="underline">id_stade</tspan> (PK)</text>
-    <text x="780" y="259" font-size="11" fill="#0B1F3A">nom</text>
-    <text x="780" y="275" font-size="11" fill="#0B1F3A">ville</text>
+    <rect x="1180" y="90" width="240" height="108" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="1180" y="90" width="240" height="28" fill="#0B1F3A"/>
+    <text x="1300" y="109" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">STADE</text>
+    <text x="1192" y="136" font-size="12" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_stade</tspan>  (PK)</text>
+    <text x="1192" y="160" font-size="12" fill="#0B1F3A">nom</text>
+    <text x="1192" y="184" font-size="12" fill="#0B1F3A">ville</text>
   </g>
   <!-- EQUIPE -->
   <g>
-    <rect x="40" y="235" width="218" height="124" rx="2" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.4"/>
-    <rect x="40" y="235" width="218" height="22" fill="#0B1F3A"/>
-    <text x="149" y="251" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">EQUIPE</text>
-    <text x="48" y="273" font-size="11" fill="#0B1F3A"><tspan text-decoration="underline">id_equipe</tspan> (PK)</text>
-    <text x="48" y="289" font-size="11" fill="#0B1F3A">nom</text>
-    <text x="48" y="305" font-size="11" fill="#0B1F3A">code</text>
-    <text x="48" y="321" font-size="11" fill="#0B1F3A">drapeau</text>
-    <text x="48" y="337" font-size="11" fill="#0B1F3A">confederation</text>
-    <text x="48" y="353" font-size="11" fill="#1652F0" font-style="italic">id_groupe (FK)</text>
+    <rect x="80" y="380" width="240" height="180" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="80" y="380" width="240" height="28" fill="#0B1F3A"/>
+    <text x="200" y="399" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">EQUIPE</text>
+    <text x="92" y="426" font-size="12" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_equipe</tspan>  (PK)</text>
+    <text x="92" y="450" font-size="12" fill="#0B1F3A">nom</text>
+    <text x="92" y="474" font-size="12" fill="#0B1F3A">code</text>
+    <text x="92" y="498" font-size="12" fill="#0B1F3A">drapeau</text>
+    <text x="92" y="522" font-size="12" fill="#0B1F3A">confederation</text>
+    <text x="92" y="546" font-size="12" fill="#1652F0" font-style="italic">id_groupe  (FK)</text>
   </g>
   <!-- MATCH -->
   <g>
-    <rect x="330" y="150" width="236" height="202" rx="2" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.4"/>
-    <rect x="330" y="150" width="236" height="22" fill="#0B1F3A"/>
-    <text x="448" y="166" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">MATCH</text>
-    <text x="338" y="188" font-size="11" fill="#0B1F3A"><tspan text-decoration="underline">id_match</tspan> (PK)</text>
-    <text x="338" y="204" font-size="11" fill="#0B1F3A">date_heure</text>
-    <text x="338" y="220" font-size="11" fill="#0B1F3A">statut</text>
-    <text x="338" y="236" font-size="11" fill="#0B1F3A">score_dom</text>
-    <text x="338" y="252" font-size="11" fill="#0B1F3A">score_ext</text>
-    <text x="338" y="268" font-size="11" fill="#0B1F3A">minute</text>
-    <text x="338" y="284" font-size="11" fill="#1652F0" font-style="italic">id_phase (FK)</text>
-    <text x="338" y="300" font-size="11" fill="#1652F0" font-style="italic">id_stade (FK)</text>
-    <text x="338" y="316" font-size="11" fill="#1652F0" font-style="italic">id_equipe_dom (FK)</text>
-    <text x="338" y="332" font-size="11" fill="#1652F0" font-style="italic">id_equipe_ext (FK)</text>
-    <text x="338" y="348" font-size="11" fill="#1652F0" font-style="italic">id_groupe (FK, null)</text>
+    <rect x="630" y="300" width="260" height="300" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="630" y="300" width="260" height="28" fill="#0B1F3A"/>
+    <text x="760" y="319" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">MATCH</text>
+    <text x="642" y="346" font-size="12" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_match</tspan>  (PK)</text>
+    <text x="642" y="370" font-size="12" fill="#0B1F3A">date_heure</text>
+    <text x="642" y="394" font-size="12" fill="#0B1F3A">statut</text>
+    <text x="642" y="418" font-size="12" fill="#0B1F3A">score_dom</text>
+    <text x="642" y="442" font-size="12" fill="#0B1F3A">score_ext</text>
+    <text x="642" y="466" font-size="12" fill="#0B1F3A">minute</text>
+    <text x="642" y="490" font-size="12" fill="#1652F0" font-style="italic">id_phase  (FK)</text>
+    <text x="642" y="514" font-size="12" fill="#1652F0" font-style="italic">id_stade  (FK)</text>
+    <text x="642" y="538" font-size="12" fill="#1652F0" font-style="italic">id_groupe  (FK, null)</text>
+    <text x="642" y="562" font-size="12" fill="#1652F0" font-style="italic">id_equipe_dom  (FK)</text>
+    <text x="642" y="586" font-size="12" fill="#1652F0" font-style="italic">id_equipe_ext  (FK)</text>
   </g>
   <!-- CLASSEMENT -->
   <g>
-    <rect x="40" y="440" width="236" height="156" rx="2" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.4"/>
-    <rect x="40" y="440" width="236" height="22" fill="#0B1F3A"/>
-    <text x="158" y="456" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">CLASSEMENT</text>
-    <text x="48" y="478" font-size="11" fill="#1652F0" font-style="italic"><tspan text-decoration="underline" fill="#0B1F3A">id_equipe</tspan> (PK, FK)</text>
-    <text x="48" y="494" font-size="11" fill="#0B1F3A">joues</text>
-    <text x="48" y="510" font-size="11" fill="#0B1F3A">gagnes</text>
-    <text x="48" y="526" font-size="11" fill="#0B1F3A">nuls</text>
-    <text x="48" y="542" font-size="11" fill="#0B1F3A">perdus</text>
-    <text x="48" y="558" font-size="11" fill="#0B1F3A">buts_pour</text>
-    <text x="48" y="574" font-size="11" fill="#0B1F3A">buts_contre</text>
-    <text x="48" y="590" font-size="11" fill="#0B1F3A">points</text>
+    <rect x="80" y="660" width="240" height="228" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="80" y="660" width="240" height="28" fill="#0B1F3A"/>
+    <text x="200" y="679" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">CLASSEMENT</text>
+    <text x="92" y="706" font-size="12" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_equipe</tspan>  <tspan fill="#1652F0" font-style="italic">(PK, FK)</tspan></text>
+    <text x="92" y="730" font-size="12" fill="#0B1F3A">joues</text>
+    <text x="92" y="754" font-size="12" fill="#0B1F3A">gagnes</text>
+    <text x="92" y="778" font-size="12" fill="#0B1F3A">nuls</text>
+    <text x="92" y="802" font-size="12" fill="#0B1F3A">perdus</text>
+    <text x="92" y="826" font-size="12" fill="#0B1F3A">buts_pour</text>
+    <text x="92" y="850" font-size="12" fill="#0B1F3A">buts_contre</text>
+    <text x="92" y="874" font-size="12" fill="#0B1F3A">points</text>
   </g>
+  <text x="330" y="700" font-size="11.5" fill="#64748B" font-style="italic">Table matérialisée ou vue calculée</text>
+  <text x="330" y="718" font-size="11.5" fill="#64748B" font-style="italic">à partir des résultats des matchs.</text>
 
-  <g font-size="10.5" fill="#5C6B7C">
-    <text x="330" y="600">PK = clé primaire (soulignée)   ·   FK = clé étrangère (italique)   ·   →  référence</text>
-  </g>
+  <!-- ============ légende ============ -->
+  <text x="630" y="920" font-size="12" fill="#64748B">PK = clé primaire (soulignée) · FK = clé étrangère (italique bleu) · → référence vers la clé primaire</text>
 </svg>

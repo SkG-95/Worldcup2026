@@ -1,263 +1,221 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 980" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960" font-family="Arial, Helvetica, sans-serif">
   <defs>
     <marker id="dep" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M1,1 L10,5 L1,9" fill="none" stroke="#5C6B7C" stroke-width="1.3"/></marker>
   </defs>
-  <rect width="960" height="980" fill="#FFFFFF"/>
-  <text x="480" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#0B1F3A">Diagramme de classes</text>
+  <rect width="1440" height="960" fill="#FFFFFF"/>
+  <text x="720" y="34" text-anchor="middle" font-size="18" font-weight="bold" fill="#0B1F3A">Diagramme de classes — Suivi Coupe du Monde FIFA 2026</text>
 
-  <!-- ============ relationships (drawn first) ============ -->
-  <g stroke="#5C6B7C" stroke-width="1.3" fill="none">
-    <!-- Group aggregation Team -->
-    <line x1="155" y1="300" x2="155" y2="236"/>
-    <polygon points="155,290 147,300 155,310 163,300" fill="#FFFFFF" stroke="#5C6B7C"/>
-    <!-- Match - Team domicile -->
-    <line x1="262" y1="150" x2="372" y2="150"/>
-    <!-- Match - Team exterieur -->
-    <line x1="262" y1="186" x2="372" y2="186"/>
-    <!-- Match - Group rattaché -->
-    <line x1="262" y1="334" x2="372" y2="300"/>
-    <!-- Standing - Group -->
-    <line x1="430" y1="430" x2="205" y2="372"/>
+  <!-- ============ relations (tracées sous les boîtes) ============ -->
+  <!-- Agrégation Groupe ◇— Équipe -->
+  <g stroke="#5C6B7C" stroke-width="1.4" fill="none">
+    <line x1="170" y1="220" x2="170" y2="290"/>
+    <line x1="170" y1="374" x2="170" y2="430"/>
+    <line x1="290" y1="120" x2="480" y2="120"/>
+    <line x1="290" y1="160" x2="480" y2="160"/>
+    <line x1="290" y1="330" x2="480" y2="330"/>
   </g>
-  <!-- dependencies (dashed) -->
+  <polygon points="170,290 162,278 170,266 178,278" fill="#FFFFFF" stroke="#5C6B7C" stroke-width="1.4"/>
+  <!-- dépendances (pointillés) -->
   <g stroke="#5C6B7C" stroke-width="1.3" stroke-dasharray="5 4" fill="none">
-    <line x1="628" y1="206" x2="720" y2="350" marker-end="url(#dep)"/>
-    <line x1="628" y1="258" x2="720" y2="500" marker-end="url(#dep)"/>
-    <line x1="720" y1="134" x2="630" y2="120" marker-end="url(#dep)"/>
-  </g>
-  <!-- multiplicities & role labels -->
-  <g font-size="10.5" fill="#5C6B7C">
-    <text x="160" y="252">4</text><text x="160" y="296">1</text><text x="120" y="276" font-style="italic">contient</text>
-    <text x="300" y="144" font-style="italic">«domicile» 1</text><text x="345" y="163">0..*</text>
-    <text x="300" y="180" font-style="italic">«extérieur» 1</text><text x="345" y="199">0..*</text>
-    <text x="268" y="324">0..1</text><text x="300" y="312" font-style="italic">rattaché à</text>
-    <text x="300" y="396" font-style="italic">classement</text><text x="210" y="388">1</text><text x="430" y="446">4</text>
-    <text x="650" y="280" font-style="italic" fill="#5C6B7C">«utilise»</text>
-    <text x="648" y="118" font-style="italic">«fournit»</text>
+    <line x1="850" y1="110" x2="760" y2="110" marker-end="url(#dep)"/>
+    <path d="M760,200 L1125,200 L1125,128 L1150,128" marker-end="url(#dep)"/>
+    <line x1="760" y1="340" x2="1150" y2="340" marker-end="url(#dep)"/>
+    <line x1="620" y1="500" x2="620" y2="400" marker-end="url(#dep)"/>
   </g>
 
-  <!-- ============ classes ============ -->
-  <!-- Team -->
+  <!-- multiplicités et rôles -->
+  <g font-size="11" fill="#334155">
+    <text x="182" y="242" font-weight="bold">4</text>
+    <text x="98" y="258" font-style="italic">contient</text>
+    <text x="182" y="286" font-weight="bold">1</text>
+    <text x="182" y="392" font-weight="bold">1</text>
+    <text x="88" y="406" font-style="italic">classement</text>
+    <text x="182" y="426" font-weight="bold">4</text>
+    <text x="330" y="112" font-style="italic">«domicile»</text>
+    <text x="298" y="136" font-weight="bold">1</text>
+    <text x="440" y="136" font-weight="bold">0..*</text>
+    <text x="330" y="152" font-style="italic">«extérieur»</text>
+    <text x="298" y="176" font-weight="bold">1</text>
+    <text x="440" y="176" font-weight="bold">0..*</text>
+    <text x="330" y="322" font-style="italic">rattaché à</text>
+    <text x="298" y="346" font-weight="bold">0..*</text>
+    <text x="436" y="346" font-weight="bold">0..1</text>
+    <text x="805" y="98" text-anchor="middle" font-style="italic">«fournit»</text>
+    <text x="950" y="192" font-style="italic">«utilise»</text>
+    <text x="940" y="332" font-style="italic">«utilise»</text>
+    <text x="632" y="456" font-style="italic">«utilisent les données»</text>
+  </g>
+
+  <!-- ============ classes du domaine (bleu) ============ -->
+  <!-- Équipe -->
   <g>
-    <rect x="48" y="104" width="214" height="132" rx="3" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
-    <rect x="48" y="104" width="214" height="26" rx="3" fill="#0B1F3A"/>
-    <text x="155" y="122" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">Équipe (Team)</text>
-    <line x1="48" y1="130" x2="262" y2="130" stroke="#1652F0"/>
-    <g font-size="11" fill="#0B1F3A">
-      <text x="56" y="150">- id : String</text>
-      <text x="56" y="166">- nom : String</text>
-      <text x="56" y="182">- code : String</text>
-      <text x="56" y="198">- drapeau : String</text>
-      <text x="56" y="214">- confédération : String</text>
+    <rect x="50" y="70" width="240" height="150" rx="3" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="50" y="70" width="240" height="30" rx="3" fill="#0B1F3A"/>
+    <text x="170" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">Équipe (Team)</text>
+    <g font-size="11.5" fill="#0B1F3A">
+      <text x="60" y="118">- id : String</text>
+      <text x="60" y="140">- nom : String</text>
+      <text x="60" y="162">- code : String</text>
+      <text x="60" y="184">- drapeau : String</text>
+      <text x="60" y="206">- confédération : String</text>
     </g>
   </g>
-  <!-- Group -->
+  <!-- Groupe -->
   <g>
-    <rect x="48" y="300" width="214" height="72" rx="3" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
-    <rect x="48" y="300" width="214" height="26" rx="3" fill="#0B1F3A"/>
-    <text x="155" y="318" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">Groupe (Group)</text>
-    <line x1="48" y1="326" x2="262" y2="326" stroke="#1652F0"/>
-    <g font-size="11" fill="#0B1F3A">
-      <text x="56" y="346">- id : String  (A … L)</text>
-      <text x="56" y="362">- libellé : String</text>
+    <rect x="50" y="290" width="240" height="84" rx="3" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="50" y="290" width="240" height="30" rx="3" fill="#0B1F3A"/>
+    <text x="170" y="310" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">Groupe (Group)</text>
+    <g font-size="11.5" fill="#0B1F3A">
+      <text x="60" y="338">- id : String (A … L)</text>
+      <text x="60" y="360">- libellé : String</text>
     </g>
+  </g>
+  <!-- Classement -->
+  <g>
+    <rect x="50" y="430" width="240" height="242" rx="3" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="50" y="430" width="240" height="30" rx="3" fill="#0B1F3A"/>
+    <text x="170" y="450" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">Classement (Standing)</text>
+    <g font-size="11.5" fill="#0B1F3A">
+      <text x="60" y="478">- équipe : Équipe</text>
+      <text x="60" y="500">- joués : int</text>
+      <text x="60" y="522">- gagnés : int</text>
+      <text x="60" y="544">- nuls : int</text>
+      <text x="60" y="566">- perdus : int</text>
+      <text x="60" y="588">- butsPour : int</text>
+      <text x="60" y="610">- butsContre : int</text>
+      <text x="60" y="632">- points : int</text>
+    </g>
+    <line x1="50" y1="640" x2="290" y2="640" stroke="#1652F0"/>
+    <text x="60" y="660" font-size="11.5" fill="#0B1F3A">+ différence() : int</text>
   </g>
   <!-- Match -->
   <g>
-    <rect x="372" y="78" width="256" height="262" rx="3" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
-    <rect x="372" y="78" width="256" height="26" rx="3" fill="#0B1F3A"/>
-    <text x="500" y="96" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">Match</text>
-    <line x1="372" y1="104" x2="628" y2="104" stroke="#1652F0"/>
-    <g font-size="11" fill="#0B1F3A">
-      <text x="380" y="122">- id : String</text>
-      <text x="380" y="138">- journée : int</text>
-      <text x="380" y="154">- dateHeure : DateTime</text>
-      <text x="380" y="170">- stade : String</text>
-      <text x="380" y="186">- ville : String</text>
-      <text x="380" y="202">- scoreDom : int</text>
-      <text x="380" y="218">- scoreExt : int</text>
-      <text x="380" y="234">- minute : int</text>
-      <text x="380" y="250">- statut : MatchStatus</text>
-      <text x="380" y="266">- phase : Phase</text>
+    <rect x="480" y="70" width="280" height="330" rx="3" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="480" y="70" width="280" height="30" rx="3" fill="#0B1F3A"/>
+    <text x="620" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">Match</text>
+    <g font-size="11.5" fill="#0B1F3A">
+      <text x="490" y="118">- id : String</text>
+      <text x="490" y="140">- journée : int</text>
+      <text x="490" y="162">- dateHeure : DateTime</text>
+      <text x="490" y="184">- stade : String</text>
+      <text x="490" y="206">- ville : String</text>
+      <text x="490" y="228">- scoreDom : int</text>
+      <text x="490" y="250">- scoreExt : int</text>
+      <text x="490" y="272">- minute : int</text>
+      <text x="490" y="294">- statut : MatchStatus</text>
+      <text x="490" y="316">- phase : Phase</text>
     </g>
-    <line x1="372" y1="276" x2="628" y2="276" stroke="#1652F0"/>
-    <g font-size="11" fill="#0B1F3A">
-      <text x="380" y="294">+ estEnDirect() : bool</text>
-      <text x="380" y="310">+ estTerminé() : bool</text>
-      <text x="380" y="326">+ vainqueur() : Équipe</text>
-    </g>
-  </g>
-  <!-- Standing -->
-  <g>
-    <rect x="360" y="430" width="250" height="200" rx="3" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
-    <rect x="360" y="430" width="250" height="26" rx="3" fill="#0B1F3A"/>
-    <text x="485" y="448" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">Classement (Standing)</text>
-    <line x1="360" y1="456" x2="610" y2="456" stroke="#1652F0"/>
-    <g font-size="11" fill="#0B1F3A">
-      <text x="368" y="476">- equipe : Équipe</text>
-      <text x="368" y="492">- joués : int</text>
-      <text x="368" y="508">- gagnés : int</text>
-      <text x="368" y="524">- nuls : int</text>
-      <text x="368" y="540">- perdus : int</text>
-      <text x="368" y="556">- butsPour : int</text>
-      <text x="368" y="572">- butsContre : int</text>
-      <text x="368" y="588">- points : int</text>
-    </g>
-    <line x1="360" y1="598" x2="610" y2="598" stroke="#1652F0"/>
-    <text x="368" y="618" font-size="11" fill="#0B1F3A">+ différence() : int</text>
-  </g>
-  <!-- WorldCupApi -->
-  <g>
-    <rect x="720" y="92" width="216" height="86" rx="3" fill="#FFFFFF" stroke="#127A52" stroke-width="1.5"/>
-    <rect x="720" y="92" width="216" height="40" rx="3" fill="#127A52"/>
-    <text x="828" y="108" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«service»</text>
-    <text x="828" y="124" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">WorldCupApi</text>
-    <line x1="720" y1="132" x2="936" y2="132" stroke="#127A52"/>
-    <text x="728" y="154" font-size="11" fill="#0B1F3A">+ getMatches() : Match [*]</text>
-  </g>
-  <!-- MatchStatus enum -->
-  <g>
-    <rect x="720" y="300" width="200" height="104" rx="3" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.5"/>
-    <rect x="720" y="300" width="200" height="40" rx="3" fill="#C8922A"/>
-    <text x="820" y="316" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«enumeration»</text>
-    <text x="820" y="332" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">MatchStatus</text>
-    <line x1="720" y1="340" x2="920" y2="340" stroke="#C8922A"/>
-    <g font-size="11" fill="#0B1F3A">
-      <text x="728" y="360">À_VENIR</text>
-      <text x="728" y="376">EN_COURS</text>
-      <text x="728" y="392">TERMINÉ</text>
-    </g>
-  </g>
-  <!-- Phase enum -->
-  <g>
-    <rect x="720" y="440" width="200" height="176" rx="3" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.5"/>
-    <rect x="720" y="440" width="200" height="40" rx="3" fill="#C8922A"/>
-    <text x="820" y="456" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«enumeration»</text>
-    <text x="820" y="472" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">Phase</text>
-    <line x1="720" y1="480" x2="920" y2="480" stroke="#C8922A"/>
-    <g font-size="11" fill="#0B1F3A">
-      <text x="728" y="500">GROUPES</text>
-      <text x="728" y="516">SEIZIEMES</text>
-      <text x="728" y="532">HUITIEMES</text>
-      <text x="728" y="548">QUARTS</text>
-      <text x="728" y="564">DEMIES</text>
-      <text x="728" y="580">PETITE_FINALE</text>
-      <text x="728" y="596">FINALE</text>
+    <line x1="480" y1="324" x2="760" y2="324" stroke="#1652F0"/>
+    <g font-size="11.5" fill="#0B1F3A">
+      <text x="490" y="344">+ estEnDirect() : bool</text>
+      <text x="490" y="366">+ estTerminé() : bool</text>
+      <text x="490" y="388">+ vainqueur() : Équipe</text>
     </g>
   </g>
 
-  <!-- Match -> AssistantIA dependency -->
-  <g stroke="#FF2E6E" stroke-width="1.3" stroke-dasharray="5 4" fill="none">
-    <line x1="500" y1="340" x2="500" y2="700" marker-end="url(#dep)"/>
-  </g>
-  <text x="512" y="520" font-size="10.5" font-style="italic" fill="#FF2E6E">«utilise les données»</text>
-
-  <!-- AssistantIA service class (nouveau) -->
+  <!-- ============ service de données (vert) ============ -->
   <g>
-    <rect x="372" y="700" width="256" height="86" rx="3" fill="#FFFFFF" stroke="#FF2E6E" stroke-width="1.6"/>
-    <rect x="372" y="700" width="256" height="40" rx="3" fill="#FF2E6E"/>
-    <text x="500" y="716" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«service» (simulé)</text>
-    <text x="500" y="732" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">AssistantIA</text>
-    <line x1="372" y1="740" x2="628" y2="740" stroke="#FF2E6E"/>
-    <text x="380" y="760" font-size="11" fill="#0B1F3A">+ repondre(question, matchs) : String</text>
+    <rect x="850" y="70" width="250" height="96" rx="3" fill="#FFFFFF" stroke="#127A52" stroke-width="1.5"/>
+    <rect x="850" y="70" width="250" height="44" rx="3" fill="#127A52"/>
+    <text x="975" y="87" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«service»</text>
+    <text x="975" y="104" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">WorldCupApi</text>
+    <text x="860" y="140" font-size="11.5" fill="#0B1F3A">+ getMatches() : Match [*]</text>
   </g>
 
-  <!-- Predictor service -->
+  <!-- ============ énumérations (ambre) ============ -->
   <g>
-    <rect x="40" y="700" width="220" height="72" rx="3" fill="#FFFFFF" stroke="#FF2E6E" stroke-width="1.4"/>
-    <rect x="40" y="700" width="220" height="38" rx="3" fill="#FF2E6E"/>
-    <text x="150" y="716" text-anchor="middle" font-size="10" fill="#FFFFFF" font-style="italic">«service» (simulé)</text>
-    <text x="150" y="730" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">PredictMatch</text>
-    <line x1="40" y1="738" x2="260" y2="738" stroke="#FF2E6E"/>
-    <text x="48" y="758" font-size="11" fill="#0B1F3A">+ prédire(m, matchs) : {home,draw,away}</text>
+    <rect x="1150" y="70" width="250" height="118" rx="3" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.5"/>
+    <rect x="1150" y="70" width="250" height="44" rx="3" fill="#C8922A"/>
+    <text x="1275" y="87" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«enumeration»</text>
+    <text x="1275" y="104" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">MatchStatus</text>
+    <g font-size="11.5" fill="#0B1F3A">
+      <text x="1160" y="134">À_VENIR</text>
+      <text x="1160" y="156">EN_COURS</text>
+      <text x="1160" y="178">TERMINÉ</text>
+    </g>
   </g>
-  <!-- AnalyzeTeam service -->
   <g>
-    <rect x="280" y="700" width="220" height="72" rx="3" fill="#FFFFFF" stroke="#FF2E6E" stroke-width="1.4"/>
-    <rect x="280" y="700" width="220" height="38" rx="3" fill="#FF2E6E"/>
-    <text x="390" y="716" text-anchor="middle" font-size="10" fill="#FFFFFF" font-style="italic">«service» (simulé)</text>
-    <text x="390" y="730" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">AnalyzeTeam</text>
-    <line x1="280" y1="738" x2="500" y2="738" stroke="#FF2E6E"/>
-    <text x="288" y="758" font-size="11" fill="#0B1F3A">+ analyser(code, matchs) : Analyse</text>
-  </g>
-  <!-- LiveCommentary component -->
-  <g>
-    <rect x="520" y="700" width="220" height="72" rx="3" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.4"/>
-    <rect x="520" y="700" width="220" height="38" rx="3" fill="#C8922A"/>
-    <text x="630" y="716" text-anchor="middle" font-size="10" fill="#FFFFFF" font-style="italic">«composant»</text>
-    <text x="630" y="730" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">LiveCommentary</text>
-    <line x1="520" y1="738" x2="740" y2="738" stroke="#C8922A"/>
-    <text x="528" y="758" font-size="11" fill="#0B1F3A">+ generer(m : Match) : String[]</text>
-  </g>
-  <!-- PlayerCard component -->
-  <g>
-    <rect x="760" y="700" width="185" height="72" rx="3" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.4"/>
-    <rect x="760" y="700" width="185" height="38" rx="3" fill="#C8922A"/>
-    <text x="852" y="716" text-anchor="middle" font-size="10" fill="#FFFFFF" font-style="italic">«composant»</text>
-    <text x="852" y="730" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">PlayerCard</text>
-    <line x1="760" y1="738" x2="945" y2="738" stroke="#C8922A"/>
-    <text x="768" y="758" font-size="11" fill="#0B1F3A">- note, pac, tir, pas : int</text>
-  </g>
-  <!-- Dependency lines -->
-  <g stroke="#FF2E6E" stroke-width="1.2" stroke-dasharray="5 4" fill="none">
-    <line x1="500" y1="786" x2="500" y2="756"/>
-    <line x1="150" y1="786" x2="150" y2="756"/>
-    <line x1="630" y1="786" x2="630" y2="756"/>
-  </g>
-  <!-- New level label -->
-  <text x="480" y="820" text-anchor="middle" font-size="11" fill="#5C6B7C" font-style="italic">Nouveaux composants/services IA — version FIFA Ultimate Team</text>
-
-  <!-- New classes from FIFA refactor -->
-  <!-- PlayerCard -->
-  <g>
-    <rect x="40" y="820" width="200" height="88" rx="3" fill="#FFFFFF" stroke="#FF2E6E" stroke-width="1.6"/>
-    <rect x="40" y="820" width="200" height="40" rx="3" fill="#FF2E6E"/>
-    <text x="58" y="836" font-size="10" fill="#FFFFFF" font-style="italic">«composant»</text>
-    <text x="140" y="852" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">PlayerCard</text>
-    <line x1="40" y1="860" x2="240" y2="860" stroke="#FF2E6E"/>
-    <text x="48" y="878" font-size="11" fill="#0B1F3A">- note : int</text>
-    <text x="48" y="894" font-size="11" fill="#0B1F3A">- pac,tir,pas,dri,def,phy : int</text>
+    <rect x="1150" y="240" width="250" height="206" rx="3" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.5"/>
+    <rect x="1150" y="240" width="250" height="44" rx="3" fill="#C8922A"/>
+    <text x="1275" y="257" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«enumeration»</text>
+    <text x="1275" y="274" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">Phase</text>
+    <g font-size="11.5" fill="#0B1F3A">
+      <text x="1160" y="304">GROUPES</text>
+      <text x="1160" y="326">SEIZIÈMES</text>
+      <text x="1160" y="348">HUITIÈMES</text>
+      <text x="1160" y="370">QUARTS</text>
+      <text x="1160" y="392">DEMI_FINALES</text>
+      <text x="1160" y="414">PETITE_FINALE</text>
+      <text x="1160" y="436">FINALE</text>
+    </g>
   </g>
 
-  <!-- TeamCard -->
+  <!-- ============ cadre services IA & composants ============ -->
   <g>
-    <rect x="260" y="820" width="200" height="88" rx="3" fill="#FFFFFF" stroke="#FF2E6E" stroke-width="1.6"/>
-    <rect x="260" y="820" width="200" height="40" rx="3" fill="#FF2E6E"/>
-    <text x="278" y="836" font-size="10" fill="#FFFFFF" font-style="italic">«composant»</text>
-    <text x="360" y="852" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">TeamCard</text>
-    <line x1="260" y1="860" x2="460" y2="860" stroke="#FF2E6E"/>
-    <text x="268" y="878" font-size="11" fill="#0B1F3A">- variant : gold|silver|green|bronze</text>
-    <text x="268" y="894" font-size="11" fill="#0B1F3A">+ render(code, matches)</text>
+    <rect x="400" y="500" width="700" height="400" rx="4" fill="none" stroke="#94A3B8" stroke-width="1.3" stroke-dasharray="7 5"/>
+    <text x="418" y="524" font-size="12" font-weight="bold" fill="#64748B" font-style="italic">Services IA &amp; composants React consommant les matchs</text>
   </g>
-
+  <!-- AssistantIA -->
+  <g>
+    <rect x="430" y="540" width="310" height="96" rx="3" fill="#FFFFFF" stroke="#D6336C" stroke-width="1.5"/>
+    <rect x="430" y="540" width="310" height="44" rx="3" fill="#D6336C"/>
+    <text x="585" y="557" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«service IA» — Gemini (serverless) + repli simulé</text>
+    <text x="585" y="574" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">AssistantIA</text>
+    <text x="440" y="610" font-size="11.5" fill="#0B1F3A">+ répondre(question, contexte) : String</text>
+  </g>
+  <!-- PredictMatch -->
+  <g>
+    <rect x="770" y="540" width="300" height="96" rx="3" fill="#FFFFFF" stroke="#D6336C" stroke-width="1.5"/>
+    <rect x="770" y="540" width="300" height="44" rx="3" fill="#D6336C"/>
+    <text x="920" y="557" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«service IA simulé»</text>
+    <text x="920" y="574" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">PredictMatch</text>
+    <text x="780" y="610" font-size="11.5" fill="#0B1F3A">+ prédire(match, matchs) : {home, draw, away}</text>
+  </g>
+  <!-- AnalyzeTeam -->
+  <g>
+    <rect x="430" y="660" width="310" height="96" rx="3" fill="#FFFFFF" stroke="#D6336C" stroke-width="1.5"/>
+    <rect x="430" y="660" width="310" height="44" rx="3" fill="#D6336C"/>
+    <text x="585" y="677" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«service IA simulé»</text>
+    <text x="585" y="694" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">AnalyzeTeam</text>
+    <text x="440" y="730" font-size="11.5" fill="#0B1F3A">+ analyser(code, matchs) : Analyse</text>
+  </g>
   <!-- LiveCommentary -->
   <g>
-    <rect x="480" y="820" width="220" height="88" rx="3" fill="#FFFFFF" stroke="#FF2E6E" stroke-width="1.6"/>
-    <rect x="480" y="820" width="220" height="40" rx="3" fill="#FF2E6E"/>
-    <text x="498" y="836" font-size="10" fill="#FFFFFF" font-style="italic">«composant IA»</text>
-    <text x="590" y="852" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">LiveCommentary</text>
-    <line x1="480" y1="860" x2="700" y2="860" stroke="#FF2E6E"/>
-    <text x="488" y="878" font-size="11" fill="#0B1F3A">+ comments : String[]</text>
-    <text x="488" y="894" font-size="11" fill="#0B1F3A">+ genererCommentaire(minute, score)</text>
+    <rect x="770" y="660" width="300" height="96" rx="3" fill="#FFFFFF" stroke="#5C6B7C" stroke-width="1.5"/>
+    <rect x="770" y="660" width="300" height="44" rx="3" fill="#5C6B7C"/>
+    <text x="920" y="677" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«composant»</text>
+    <text x="920" y="694" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">LiveCommentary</text>
+    <text x="780" y="730" font-size="11.5" fill="#0B1F3A">+ générer(match) : String [*]</text>
   </g>
-
-  <!-- predictMatch -->
+  <!-- TeamCard -->
   <g>
-    <rect x="720" y="820" width="220" height="88" rx="3" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.6"/>
-    <rect x="720" y="820" width="220" height="40" rx="3" fill="#C8922A"/>
-    <text x="738" y="836" font-size="10" fill="#FFFFFF" font-style="italic">«service IA simulé»</text>
-    <text x="830" y="852" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#FFFFFF">predictMatch</text>
-    <line x1="720" y1="860" x2="940" y2="860" stroke="#C8922A"/>
-    <text x="728" y="878" font-size="11" fill="#0B1F3A">+ home : int  (% victoire)</text>
-    <text x="728" y="894" font-size="11" fill="#0B1F3A">+ draw : int  + away : int</text>
+    <rect x="430" y="780" width="310" height="96" rx="3" fill="#FFFFFF" stroke="#5C6B7C" stroke-width="1.5"/>
+    <rect x="430" y="780" width="310" height="44" rx="3" fill="#5C6B7C"/>
+    <text x="585" y="797" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«composant»</text>
+    <text x="585" y="814" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">TeamCard</text>
+    <text x="440" y="850" font-size="11.5" fill="#0B1F3A">- variant : gold | silver | bronze</text>
+  </g>
+  <!-- PlayerCard -->
+  <g>
+    <rect x="770" y="780" width="300" height="96" rx="3" fill="#FFFFFF" stroke="#5C6B7C" stroke-width="1.5"/>
+    <rect x="770" y="780" width="300" height="44" rx="3" fill="#5C6B7C"/>
+    <text x="920" y="797" text-anchor="middle" font-size="10.5" fill="#FFFFFF" font-style="italic">«composant»</text>
+    <text x="920" y="814" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">PlayerCard</text>
+    <text x="780" y="850" font-size="11.5" fill="#0B1F3A">- note, pac, tir, pas, dri, déf, phy : int</text>
   </g>
 
-  <!-- relation lines from Match to new components -->
-  <g stroke="#FF2E6E" stroke-width="1.2" stroke-dasharray="4 3" fill="none">
-    <line x1="500" y1="340" x2="140" y2="820"/>
-    <line x1="500" y1="340" x2="360" y2="820"/>
-    <line x1="500" y1="340" x2="590" y2="820"/>
-    <line x1="500" y1="340" x2="830" y2="820"/>
+  <!-- ============ légende ============ -->
+  <g font-size="11.5" fill="#334155">
+    <rect x="50" y="722" width="14" height="14" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <text x="72" y="734">Classes du domaine</text>
+    <rect x="50" y="748" width="14" height="14" fill="#FFFFFF" stroke="#127A52" stroke-width="1.5"/>
+    <text x="72" y="760">Service de données</text>
+    <rect x="50" y="774" width="14" height="14" fill="#FFFFFF" stroke="#C8922A" stroke-width="1.5"/>
+    <text x="72" y="786">Énumérations</text>
+    <rect x="50" y="800" width="14" height="14" fill="#FFFFFF" stroke="#D6336C" stroke-width="1.5"/>
+    <text x="72" y="812">Services IA</text>
+    <rect x="50" y="826" width="14" height="14" fill="#FFFFFF" stroke="#5C6B7C" stroke-width="1.5"/>
+    <text x="72" y="838">Composants React</text>
+    <text x="50" y="872" font-style="italic" fill="#64748B">◇ agrégation · — association · - -&gt; dépendance</text>
   </g>
-  <text x="220" y="590" font-size="9.5" fill="#FF2E6E" font-style="italic" transform="rotate(-55 220 590)">«utilise»</text>
 </svg>

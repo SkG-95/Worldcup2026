@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 720" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1500" height="720" fill="#FFFFFF"/>
+  <text x="750" y="36" text-anchor="middle" font-size="19" font-weight="bold" fill="#0B1F3A">Modèle Conceptuel de Données (MCD) — entité-association</text>
+
+  <!-- ============ liens (sous les ellipses) ============ -->
+  <g stroke="#5C6B7C" stroke-width="1.4" fill="none">
+    <!-- GROUPE — APPARTENIR — ÉQUIPE -->
+    <line x1="195" y1="164" x2="195" y2="420"/>
+    <!-- GROUPE — RATTACHER — MATCH -->
+    <line x1="310" y1="130" x2="472" y2="205"/>
+    <line x1="472" y1="205" x2="690" y2="390"/>
+    <!-- ÉQUIPE — JOUER dom — MATCH -->
+    <line x1="310" y1="455" x2="640" y2="455"/>
+    <!-- ÉQUIPE — JOUER ext — MATCH -->
+    <line x1="310" y1="548" x2="640" y2="548"/>
+    <!-- MATCH — CONCERNER — PHASE -->
+    <line x1="820" y1="390" x2="1010" y2="205"/>
+    <line x1="1010" y1="205" x2="1250" y2="164"/>
+    <!-- MATCH — SE JOUER — STADE -->
+    <line x1="880" y1="473" x2="1190" y2="473"/>
+  </g>
+
+  <!-- ============ associations (ellipses) ============ -->
+  <g>
+    <ellipse cx="195" cy="290" rx="92" ry="32" fill="#EEF3FE" stroke="#1652F0" stroke-width="1.5"/>
+    <text x="195" y="295" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0B1F3A">APPARTENIR</text>
+    <ellipse cx="472" cy="205" rx="92" ry="32" fill="#EEF3FE" stroke="#1652F0" stroke-width="1.5"/>
+    <text x="472" y="210" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0B1F3A">RATTACHER</text>
+    <ellipse cx="472" cy="455" rx="92" ry="32" fill="#EEF3FE" stroke="#1652F0" stroke-width="1.5"/>
+    <text x="472" y="460" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0B1F3A">JOUER (dom.)</text>
+    <ellipse cx="472" cy="548" rx="92" ry="32" fill="#EEF3FE" stroke="#1652F0" stroke-width="1.5"/>
+    <text x="472" y="553" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0B1F3A">JOUER (ext.)</text>
+    <ellipse cx="1010" cy="205" rx="92" ry="32" fill="#EEF3FE" stroke="#1652F0" stroke-width="1.5"/>
+    <text x="1010" y="210" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0B1F3A">CONCERNER</text>
+    <ellipse cx="1010" cy="473" rx="92" ry="32" fill="#EEF3FE" stroke="#1652F0" stroke-width="1.5"/>
+    <text x="1010" y="478" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0B1F3A">SE JOUER</text>
+  </g>
+
+  <!-- ============ cardinalités ============ -->
+  <g font-size="12" font-weight="bold" fill="#B02A37">
+    <text x="205" y="192">1,n</text>
+    <text x="205" y="408">1,1</text>
+    <text x="330" y="152">0,n</text>
+    <text x="648" y="372">0,1</text>
+    <text x="322" y="447">0,n</text>
+    <text x="596" y="447">1,1</text>
+    <text x="322" y="540">0,n</text>
+    <text x="596" y="540">1,1</text>
+    <text x="836" y="368">1,1</text>
+    <text x="1198" y="182">1,n</text>
+    <text x="898" y="465">1,1</text>
+    <text x="1142" y="465">0,n</text>
+  </g>
+
+  <!-- ============ entités ============ -->
+  <!-- GROUPE -->
+  <g>
+    <rect x="80" y="80" width="230" height="84" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1.6"/>
+    <rect x="80" y="80" width="230" height="30" fill="#0B1F3A"/>
+    <text x="195" y="100" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#FFFFFF">GROUPE</text>
+    <text x="92" y="130" font-size="12" fill="#0B1F3A" text-decoration="underline" font-weight="bold">idGroupe</text>
+    <text x="92" y="152" font-size="12" fill="#0B1F3A">libellé</text>
+  </g>
+  <!-- PHASE -->
+  <g>
+    <rect x="1190" y="80" width="230" height="84" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1.6"/>
+    <rect x="1190" y="80" width="230" height="30" fill="#0B1F3A"/>
+    <text x="1305" y="100" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#FFFFFF">PHASE</text>
+    <text x="1202" y="130" font-size="12" fill="#0B1F3A" text-decoration="underline" font-weight="bold">idPhase</text>
+    <text x="1202" y="152" font-size="12" fill="#0B1F3A">libellé</text>
+  </g>
+  <!-- ÉQUIPE -->
+  <g>
+    <rect x="80" y="420" width="230" height="150" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1.6"/>
+    <rect x="80" y="420" width="230" height="30" fill="#0B1F3A"/>
+    <text x="195" y="440" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#FFFFFF">ÉQUIPE</text>
+    <text x="92" y="470" font-size="12" fill="#0B1F3A" text-decoration="underline" font-weight="bold">idEquipe</text>
+    <text x="92" y="492" font-size="12" fill="#0B1F3A">nom</text>
+    <text x="92" y="514" font-size="12" fill="#0B1F3A">code</text>
+    <text x="92" y="536" font-size="12" fill="#0B1F3A">drapeau</text>
+    <text x="92" y="558" font-size="12" fill="#0B1F3A">confédération</text>
+  </g>
+  <!-- MATCH -->
+  <g>
+    <rect x="640" y="390" width="240" height="172" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1.6"/>
+    <rect x="640" y="390" width="240" height="30" fill="#0B1F3A"/>
+    <text x="760" y="410" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#FFFFFF">MATCH</text>
+    <text x="652" y="440" font-size="12" fill="#0B1F3A" text-decoration="underline" font-weight="bold">idMatch</text>
+    <text x="652" y="462" font-size="12" fill="#0B1F3A">dateHeure</text>
+    <text x="652" y="484" font-size="12" fill="#0B1F3A">statut</text>
+    <text x="652" y="506" font-size="12" fill="#0B1F3A">scoreDom</text>
+    <text x="652" y="528" font-size="12" fill="#0B1F3A">scoreExt</text>
+    <text x="652" y="550" font-size="12" fill="#0B1F3A">minute</text>
+  </g>
+  <!-- STADE -->
+  <g>
+    <rect x="1190" y="420" width="230" height="106" fill="#FFFFFF" stroke="#0B1F3A" stroke-width="1.6"/>
+    <rect x="1190" y="420" width="230" height="30" fill="#0B1F3A"/>
+    <text x="1305" y="440" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#FFFFFF">STADE</text>
+    <text x="1202" y="470" font-size="12" fill="#0B1F3A" text-decoration="underline" font-weight="bold">idStade</text>
+    <text x="1202" y="492" font-size="12" fill="#0B1F3A">nom</text>
+    <text x="1202" y="514" font-size="12" fill="#0B1F3A">ville</text>
+  </g>
+
+  <!-- ============ notes ============ -->
+  <g font-size="11.5" fill="#64748B" font-style="italic">
+    <text x="80" y="640">Le classement n'apparaît pas au niveau conceptuel : c'est une donnée calculée à partir des matchs, matérialisée en table CLASSEMENT au niveau logique (MLD).</text>
+    <text x="80" y="668">Notation MERISE — cardinalités (minimum, maximum) · identifiant souligné · association = ellipse.</text>
+  </g>
+</svg>

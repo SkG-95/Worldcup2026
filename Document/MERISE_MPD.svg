@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 1000" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="fk" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#5C6B7C" stroke-width="1.4"/></marker>
+  </defs>
+  <rect width="1520" height="1000" fill="#FFFFFF"/>
+  <text x="760" y="38" text-anchor="middle" font-size="19" font-weight="bold" fill="#0B1F3A">Modèle Physique de Données (MPD) — cible MySQL / PostgreSQL</text>
+
+  <!-- ============ références FK → PK ============ -->
+  <g stroke="#5C6B7C" stroke-width="1.4" fill="none">
+    <line x1="210" y1="380" x2="210" y2="174" marker-end="url(#fk)"/>
+    <line x1="210" y1="660" x2="210" y2="560" marker-end="url(#fk)"/>
+    <line x1="770" y1="300" x2="770" y2="174" marker-end="url(#fk)"/>
+    <path d="M960,508 L1070,508 L1070,145 L1180,145" marker-end="url(#fk)"/>
+    <path d="M620,532 L560,532 L560,130 L360,130" marker-end="url(#fk)"/>
+    <line x1="620" y1="556" x2="360" y2="556" marker-end="url(#fk)"/>
+    <path d="M620,580 L400,580 L400,545 L360,545" marker-end="url(#fk)"/>
+  </g>
+
+  <!-- ============ tables ============ -->
+  <!-- GROUPE -->
+  <g>
+    <rect x="60" y="90" width="300" height="84" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="60" y="90" width="300" height="28" fill="#0B1F3A"/>
+    <text x="210" y="109" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">GROUPE</text>
+    <text x="72" y="136" font-size="11.5" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_groupe</tspan>  <tspan fill="#127A52">INT</tspan></text>
+    <text x="348" y="136" font-size="10.5" fill="#B45309" text-anchor="end">PK · AI</text>
+    <text x="72" y="160" font-size="11.5" fill="#0B1F3A">libelle  <tspan fill="#127A52">VARCHAR(40)</tspan></text>
+    <text x="348" y="160" font-size="10.5" fill="#B45309" text-anchor="end">NN · UQ</text>
+  </g>
+  <!-- PHASE -->
+  <g>
+    <rect x="620" y="90" width="300" height="84" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="620" y="90" width="300" height="28" fill="#0B1F3A"/>
+    <text x="770" y="109" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">PHASE</text>
+    <text x="632" y="136" font-size="11.5" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_phase</tspan>  <tspan fill="#127A52">INT</tspan></text>
+    <text x="908" y="136" font-size="10.5" fill="#B45309" text-anchor="end">PK · AI</text>
+    <text x="632" y="160" font-size="11.5" fill="#0B1F3A">libelle  <tspan fill="#127A52">VARCHAR(40)</tspan></text>
+    <text x="908" y="160" font-size="10.5" fill="#B45309" text-anchor="end">NN · UQ</text>
+  </g>
+  <!-- STADE -->
+  <g>
+    <rect x="1180" y="90" width="300" height="108" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="1180" y="90" width="300" height="28" fill="#0B1F3A"/>
+    <text x="1330" y="109" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">STADE</text>
+    <text x="1192" y="136" font-size="11.5" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_stade</tspan>  <tspan fill="#127A52">INT</tspan></text>
+    <text x="1468" y="136" font-size="10.5" fill="#B45309" text-anchor="end">PK · AI</text>
+    <text x="1192" y="160" font-size="11.5" fill="#0B1F3A">nom  <tspan fill="#127A52">VARCHAR(80)</tspan></text>
+    <text x="1468" y="160" font-size="10.5" fill="#B45309" text-anchor="end">NN</text>
+    <text x="1192" y="184" font-size="11.5" fill="#0B1F3A">ville  <tspan fill="#127A52">VARCHAR(60)</tspan></text>
+    <text x="1468" y="184" font-size="10.5" fill="#B45309" text-anchor="end">NN</text>
+  </g>
+  <!-- EQUIPE -->
+  <g>
+    <rect x="60" y="380" width="300" height="180" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="60" y="380" width="300" height="28" fill="#0B1F3A"/>
+    <text x="210" y="399" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">EQUIPE</text>
+    <text x="72" y="426" font-size="11.5" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_equipe</tspan>  <tspan fill="#127A52">INT</tspan></text>
+    <text x="348" y="426" font-size="10.5" fill="#B45309" text-anchor="end">PK · AI</text>
+    <text x="72" y="450" font-size="11.5" fill="#0B1F3A">nom  <tspan fill="#127A52">VARCHAR(60)</tspan></text>
+    <text x="348" y="450" font-size="10.5" fill="#B45309" text-anchor="end">NN</text>
+    <text x="72" y="474" font-size="11.5" fill="#0B1F3A">code  <tspan fill="#127A52">VARCHAR(3)</tspan></text>
+    <text x="348" y="474" font-size="10.5" fill="#B45309" text-anchor="end">NN · UQ</text>
+    <text x="72" y="498" font-size="11.5" fill="#0B1F3A">drapeau  <tspan fill="#127A52">VARCHAR(8)</tspan></text>
+    <text x="72" y="522" font-size="11.5" fill="#0B1F3A">confederation  <tspan fill="#127A52">VARCHAR(20)</tspan></text>
+    <text x="72" y="546" font-size="11.5" fill="#1652F0" font-style="italic">id_groupe  <tspan fill="#127A52">INT</tspan></text>
+    <text x="348" y="546" font-size="10.5" fill="#B45309" text-anchor="end">FK · NN</text>
+  </g>
+  <!-- MATCH -->
+  <g>
+    <rect x="620" y="300" width="340" height="300" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="620" y="300" width="340" height="28" fill="#0B1F3A"/>
+    <text x="790" y="319" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">MATCH</text>
+    <text x="632" y="346" font-size="11.5" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_match</tspan>  <tspan fill="#127A52">INT</tspan></text>
+    <text x="948" y="346" font-size="10.5" fill="#B45309" text-anchor="end">PK · AI</text>
+    <text x="632" y="370" font-size="11.5" fill="#0B1F3A">date_heure  <tspan fill="#127A52">DATETIME</tspan></text>
+    <text x="948" y="370" font-size="10.5" fill="#B45309" text-anchor="end">NN</text>
+    <text x="632" y="394" font-size="11.5" fill="#0B1F3A">statut  <tspan fill="#127A52">VARCHAR(12)</tspan></text>
+    <text x="948" y="394" font-size="10.5" fill="#B45309" text-anchor="end">NN · CK</text>
+    <text x="632" y="418" font-size="11.5" fill="#0B1F3A">score_dom  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="948" y="418" font-size="10.5" fill="#B45309" text-anchor="end">CK ≥ 0</text>
+    <text x="632" y="442" font-size="11.5" fill="#0B1F3A">score_ext  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="948" y="442" font-size="10.5" fill="#B45309" text-anchor="end">CK ≥ 0</text>
+    <text x="632" y="466" font-size="11.5" fill="#0B1F3A">minute  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="948" y="466" font-size="10.5" fill="#B45309" text-anchor="end">CK 0–120</text>
+    <text x="632" y="490" font-size="11.5" fill="#1652F0" font-style="italic">id_phase  <tspan fill="#127A52">INT</tspan></text>
+    <text x="948" y="490" font-size="10.5" fill="#B45309" text-anchor="end">FK · NN</text>
+    <text x="632" y="514" font-size="11.5" fill="#1652F0" font-style="italic">id_stade  <tspan fill="#127A52">INT</tspan></text>
+    <text x="948" y="514" font-size="10.5" fill="#B45309" text-anchor="end">FK · NN</text>
+    <text x="632" y="538" font-size="11.5" fill="#1652F0" font-style="italic">id_groupe  <tspan fill="#127A52">INT</tspan></text>
+    <text x="948" y="538" font-size="10.5" fill="#B45309" text-anchor="end">FK · NULL</text>
+    <text x="632" y="562" font-size="11.5" fill="#1652F0" font-style="italic">id_equipe_dom  <tspan fill="#127A52">INT</tspan></text>
+    <text x="948" y="562" font-size="10.5" fill="#B45309" text-anchor="end">FK · NN</text>
+    <text x="632" y="586" font-size="11.5" fill="#1652F0" font-style="italic">id_equipe_ext  <tspan fill="#127A52">INT</tspan></text>
+    <text x="948" y="586" font-size="10.5" fill="#B45309" text-anchor="end">FK · NN</text>
+  </g>
+  <!-- CLASSEMENT -->
+  <g>
+    <rect x="60" y="660" width="300" height="228" fill="#FFFFFF" stroke="#1652F0" stroke-width="1.5"/>
+    <rect x="60" y="660" width="300" height="28" fill="#0B1F3A"/>
+    <text x="210" y="679" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">CLASSEMENT</text>
+    <text x="72" y="706" font-size="11.5" fill="#0B1F3A"><tspan text-decoration="underline" font-weight="bold">id_equipe</tspan>  <tspan fill="#127A52">INT</tspan></text>
+    <text x="348" y="706" font-size="10.5" fill="#B45309" text-anchor="end">PK · FK</text>
+    <text x="72" y="730" font-size="11.5" fill="#0B1F3A">joues  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="348" y="730" font-size="10.5" fill="#B45309" text-anchor="end">NN · DF 0</text>
+    <text x="72" y="754" font-size="11.5" fill="#0B1F3A">gagnes  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="348" y="754" font-size="10.5" fill="#B45309" text-anchor="end">NN · DF 0</text>
+    <text x="72" y="778" font-size="11.5" fill="#0B1F3A">nuls  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="348" y="778" font-size="10.5" fill="#B45309" text-anchor="end">NN · DF 0</text>
+    <text x="72" y="802" font-size="11.5" fill="#0B1F3A">perdus  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="348" y="802" font-size="10.5" fill="#B45309" text-anchor="end">NN · DF 0</text>
+    <text x="72" y="826" font-size="11.5" fill="#0B1F3A">buts_pour  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="348" y="826" font-size="10.5" fill="#B45309" text-anchor="end">NN · DF 0</text>
+    <text x="72" y="850" font-size="11.5" fill="#0B1F3A">buts_contre  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="348" y="850" font-size="10.5" fill="#B45309" text-anchor="end">NN · DF 0</text>
+    <text x="72" y="874" font-size="11.5" fill="#0B1F3A">points  <tspan fill="#127A52">SMALLINT</tspan></text>
+    <text x="348" y="874" font-size="10.5" fill="#B45309" text-anchor="end">NN · DF 0</text>
+  </g>
+  <text x="380" y="700" font-size="11.5" fill="#64748B" font-style="italic">Statut : CHECK ∈ {a_venir, en_cours, termine}.</text>
+  <text x="380" y="718" font-size="11.5" fill="#64748B" font-style="italic">Contrainte métier : id_equipe_dom ≠ id_equipe_ext.</text>
+
+  <!-- ============ légende ============ -->
+  <text x="620" y="960" font-size="12" fill="#64748B">PK clé primaire · FK clé étrangère · AI AUTO_INCREMENT · NN NOT NULL · UQ UNIQUE · CK CHECK · DF DEFAULT · → référence</text>
+</svg>
